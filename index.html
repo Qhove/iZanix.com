@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>iZanix.com — Zanix Zoya Qhove</title>
+
+<meta name="description" content="iZanix.com is the personal digital hub belonging to Zanix Zoya Qhove." />
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="canonical" href="https://izanix.com/" />
+
+<style>
+:root{
+  --bg:#0b0f1a;
+  --glass:rgba(255,255,255,.08);
+  --border:rgba(255,255,255,.15);
+  --pri:#6cf2c2;
+  --sec:#6aa9ff;
+  --txt:#e6e9f2;
+  --mut:#9aa3c7;
+}
+
+*{box-sizing:border-box;margin:0}
+html,body{height:100%}
+
+body{
+  font-family:Inter,system-ui;
+  background:
+    radial-gradient(900px 500px at 80% -10%,#132d6b,transparent),
+    radial-gradient(600px 300px at 10% 90%,#0f3a2a,transparent),
+    var(--bg);
+  color:var(--txt);
+}
+
+/* NAVBAR */
+header{
+  position:fixed;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:calc(100% - 40px);
+  max-width:1100px;
+  background:var(--glass);
+  backdrop-filter:blur(16px);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:14px 22px;
+  z-index:100;
+}
+nav{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand{
+  font-weight:900;
+  letter-spacing:1px;
+  background:linear-gradient(135deg,var(--pri),var(--sec));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+nav a{
+  margin-left:24px;
+  color:var(--mut);
+  text-decoration:none;
+  font-weight:600;
+}
+nav a:hover{color:var(--pri)}
+
+/* FULL SCREEN HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:120px 28px 60px;
+}
+.hero-inner{
+  max-width:1100px;
+  width:100%;
+}
+h1{
+  font-size:clamp(44px,7vw,72px);
+  line-height:1.05;
+}
+h1 span{
+  background:linear-gradient(135deg,var(--pri),var(--sec));
+  -webkit-background-clip:text;
+  color:transparent;
+}
+p{
+  margin-top:22px;
+  max-width:680px;
+  color:var(--mut);
+  font-size:18px;
+}
+.actions{
+  margin-top:36px;
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.btn{
+  padding:16px 32px;
+  border-radius:18px;
+  background:linear-gradient(135deg,var(--pri),var(--sec));
+  color:#081016;
+  font-weight:800;
+  text-decoration:none;
+}
+.btn.ghost{
+  background:transparent;
+  border:1px solid var(--border);
+  color:var(--txt);
+}
+
+footer{
+  text-align:center;
+  padding:48px 24px;
+  color:var(--mut);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="brand">iZanix</div>
+    <div>
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/links/">Links</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>
+      Hello, I'm <br />
+      <span>Zanix Zoya Qhove</span>
+    </h1>
+    <p>
+        <h3>Welcome To iZanix.com</h3>
+    </p>
+    <p>
+      iZanix.com is my personal digital hub —
+      a place where identity, personal branding,
+      and all digital projects come together in a single ecosystem.
+    </p>
+
+    <div class="actions">
+      <a href="/about/" class="btn">Explore</a>
+      <a href="/links/" class="btn ghost">Link Hub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2025 iZanix.com — Zanix Zoya Qhove
+</footer>
+
+</body>
+</html>

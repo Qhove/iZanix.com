@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://izanix.com/sitemap.xml
