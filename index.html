@@ -161,5 +161,26 @@ footer{
   © 2025 iZanix.com — Zanix Zoya Qhove
 </footer>
 
+<script>
+(function () {
+  const params = new URLSearchParams(window.location.search);
+  if (params.has("utm_source")) return;
+  if (!document.referrer) return;
+
+  const ref = new URL(document.referrer);
+
+  // kalau referrer dari domain sendiri → skip
+  if (ref.hostname === window.location.hostname) return;
+
+  params.set("utm_source", ref.hostname);
+  params.set("utm_medium", "referral");
+  params.set("utm_campaign", "organic_referral");
+  const newUrl =
+    window.location.pathname + "?" + params.toString();
+
+  window.history.replaceState({}, "", newUrl);
+})();
+             </script>
+  
 </body>
 </html>
