@@ -173,8 +173,6 @@ footer{
   if (ref.hostname === window.location.hostname) return;
 
   params.set("utm_source", ref.hostname);
-  params.set("utm_medium", "referral");
-  params.set("utm_campaign", "organic_referral");
   const newUrl =
     window.location.pathname + "?" + params.toString();
 
