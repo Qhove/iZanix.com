@@ -145,9 +145,7 @@ footer{
         <h3>Welcome To iZanix.com,</h3>
     </p>
     <p>
-      iZanix.com is my personal digital hub —
-      a place where identity, personal branding,
-      and all digital projects come together in a single ecosystem.
+      iZanix.com is my personal digital hub, a place where my digital identity, personal branding, and all my digital projects come together in one ecosystem.
     </p>
 
     <div class="actions">
@@ -169,7 +167,6 @@ footer{
 
   const ref = new URL(document.referrer);
 
-  // kalau referrer dari domain sendiri → skip
   if (ref.hostname === window.location.hostname) return;
 
   params.set("utm_source", ref.hostname);
