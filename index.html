@@ -120,6 +120,23 @@ footer{
   padding:48px 24px;
   color:var(--mut);
 }
+
+.detail-section summary {
+  display: none; /* sembunyikan summary bawaan */
+}
+
+.toggle-btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.toggle-btn:hover {
+  background: #f5f5f5;
+    }
 </style>
 </head>
 <body>
@@ -149,6 +166,11 @@ footer{
     </p>
 
 <section>
+
+  <button class="toggle-btn" aria-expanded="false">
+    Read Full Details
+  </button>
+  
   <details>
     <summary>Detail</summary>
     <p>
@@ -192,6 +214,19 @@ footer{
   © 2025-2026 iZanix.com — Zanix Zoya Qhove
 </footer>
 
+<script>
+  const btn = document.querySelector('.toggle-btn');
+  const details = document.querySelector('.detail-section details');
+
+  btn.addEventListener('click', () => {
+    details.open = !details.open;
+    btn.textContent = details.open
+      ? 'Tutup Detail'
+      : 'Baca Detail Lengkap';
+    btn.setAttribute('aria-expanded', details.open);
+  });
+</script>
+  
 <script>
 (function () {
   const params = new URLSearchParams(window.location.search);
