@@ -12,9 +12,9 @@
 
 <style>
 :root{
-  --bg:#0b0f1a;
-  --glass:rgba(255,255,255,.08);
-  --border:rgba(255,255,255,.15);
+  --bg:#080b14; /* Deep Navy Black */
+  --glass:rgba(255,255,255,.05);
+  --border:rgba(255,255,255,.12);
   --pri:#6cf2c2;
   --sec:#6aa9ff;
   --txt:#e6e9f2;
@@ -25,12 +25,16 @@
 html,body{height:100%}
 
 body{
-  font-family:Inter,system-ui;
-  background:
-    radial-gradient(900px 500px at 80% -10%,#132d6b,transparent),
-    radial-gradient(600px 300px at 10% 90%,#0f3a2a,transparent),
+  font-family:Inter,system-ui, -apple-system, sans-serif;
+  /* Background Halus dengan Fixed Attachment agar tidak tabrakan saat scroll */
+  background: 
+    radial-gradient(circle at 80% 0%, rgba(19, 45, 107, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 10% 100%, rgba(15, 58, 42, 0.4) 0%, transparent 40%),
     var(--bg);
+  background-attachment: fixed;
   color:var(--txt);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* NAVBAR */
@@ -41,8 +45,9 @@ header{
   transform:translateX(-50%);
   width:calc(100% - 40px);
   max-width:1100px;
-  background:var(--glass);
-  backdrop-filter:blur(16px);
+  background:rgba(8, 11, 20, 0.6);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
   border:1px solid var(--border);
   border-radius:20px;
   padding:14px 22px;
@@ -55,6 +60,7 @@ nav{
 }
 .brand{
   font-weight:900;
+  font-size: 1.2rem;
   letter-spacing:1px;
   background:linear-gradient(135deg,var(--pri),var(--sec));
   -webkit-background-clip:text;
@@ -65,78 +71,146 @@ nav a{
   color:var(--mut);
   text-decoration:none;
   font-weight:600;
+  transition: 0.3s;
 }
 nav a:hover{color:var(--pri)}
 
-/* FULL SCREEN HERO */
+/* HERO SECTION */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:120px 28px 60px;
+  padding:160px 24px 80px;
 }
 .hero-inner{
   max-width:1100px;
   width:100%;
 }
 h1{
-  font-size:clamp(44px,7vw,72px);
-  line-height:1.05;
+  font-size:clamp(40px,8vw,72px);
+  line-height:1.1;
+  margin-bottom: 24px;
+  font-weight: 800;
 }
 h1 span{
   background:linear-gradient(135deg,var(--pri),var(--sec));
   -webkit-background-clip:text;
   color:transparent;
 }
+h3{
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: var(--txt);
+}
 p{
-  margin-top:22px;
-  max-width:680px;
+  margin-top:20px;
+  max-width:700px;
   color:var(--mut);
   font-size:18px;
 }
+
+/* DETAILS SECTION */
+.detail-section {
+  margin-top: 35px;
+}
+.detail-section summary { display: none; }
+.toggle-btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--glass);
+  color: var(--txt);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.toggle-btn:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--pri);
+  transform: translateY(-2px);
+}
+
+/* PROJECTS LIST */
+.projects-header {
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+.project-card {
+  background: rgba(255,255,255, 0.03);
+  border: 1px solid var(--border);
+  padding: 32px;
+  border-radius: 24px;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  backdrop-filter: blur(10px);
+}
+.project-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255,255,255, 0.06);
+  border-color: rgba(108, 242, 194, 0.4);
+}
+.project-card h4 {
+  color: var(--pri);
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+.project-card p {
+  font-size: 15px;
+  margin-top: 0;
+  color: var(--mut);
+}
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--sec);
+  margin-top: 20px;
+  opacity: 0.8;
+}
+
+/* FOOTER & ACTIONS */
 .actions{
-  margin-top:36px;
+  margin-top: 50px;
   display:flex;
-  gap:18px;
-  flex-wrap:wrap;
+  gap:16px;
 }
 .btn{
   padding:16px 32px;
-  border-radius:18px;
+  border-radius:16px;
   background:linear-gradient(135deg,var(--pri),var(--sec));
-  color:#081016;
-  font-weight:800;
+  color:#080b14;
+  font-weight:700;
   text-decoration:none;
+  transition: 0.3s ease;
 }
 .btn.ghost{
   background:transparent;
   border:1px solid var(--border);
   color:var(--txt);
 }
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(108, 242, 194, 0.15);
+}
 
 footer{
   text-align:center;
-  padding:48px 24px;
+  padding:80px 24px 40px;
   color:var(--mut);
+  font-size: 14px;
 }
 
-.detail-section summary {
-  display: none; /* sembunyikan summary bawaan */
+@media (max-width: 600px) {
+  .actions { flex-direction: column; }
+  header { top: 10px; width: calc(100% - 20px); }
 }
-
-.toggle-btn {
-  padding: 10px 16px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  background: #fff;
-  cursor: pointer;
-  font-weight: 500;
-}
-
-.toggle-btn:hover {
-  background: #f5f5f5;
-    }
 </style>
 </head>
 <body>
@@ -158,15 +232,13 @@ footer{
       Hello, I'm <br />
       <span>Zanix Zoya Qhove.</span>
     </h1>
+    
+    <h3>Welcome to iZanix.com</h3>
     <p>
-        <h3>Welcome To iZanix.com,</h3>
+      My personal digital hub—a centralized ecosystem where digital identity, personal branding, and technical explorations converge into one vision.
     </p>
-    <p>
-      iZanix.com is my personal digital hub, a place where my digital identity, personal branding, and all my digital projects come together in one ecosystem.
-    </p>
-<br>
-<br>
-<section class="detail-section">
+
+    <section class="detail-section">
 
   <button class="toggle-btn" aria-expanded="false">
     Read Full Details
@@ -227,16 +299,26 @@ footer{
 </p>
   </details>
 </section>
+
+<div class="projects-grid">
+      <a href="https://tools.izanix.com/" class="project-card-link"
+        aria-label="Open iZanix MultiTools">
+        <div class="project-card">
+          <h4>iZanix MultiTools</h4>
+          <p>The All in one tools.</p>
+          <span class="tag">Tools</span>
+        </div>
+      </a>
     
     <div class="actions">
-      <a href="/about/" class="btn">About</a>
+      <a href="/about/" class="btn">Learn More</a>
       <a href="/links/" class="btn ghost">Link Hub</a>
     </div>
   </div>
 </section>
 
 <footer>
-  © 2025-2026 iZanix.com — Zanix Zoya Qhove
+  &copy; 2025-2026 iZanix.com — Zanix Zoya Qhove
 </footer>
 
 <script>
@@ -245,30 +327,19 @@ footer{
 
   btn.addEventListener('click', () => {
     details.open = !details.open;
-    btn.textContent = details.open
-      ? 'Close Details'
-      : 'Read Full Details';
-    btn.setAttribute('aria-expanded', details.open);
+    btn.textContent = details.open ? 'Minimize Details' : 'Read Full Mission';
   });
+
+  // URL Source Tracker
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    if (params.has("utm_source") || !document.referrer) return;
+    const ref = new URL(document.referrer);
+    if (ref.hostname === window.location.hostname) return;
+    params.set("utm_source", ref.hostname);
+    window.history.replaceState({}, "", window.location.pathname + "?" + params.toString());
+  })();
 </script>
-  
-<script>
-(function () {
-  const params = new URLSearchParams(window.location.search);
-  if (params.has("utm_source")) return;
-  if (!document.referrer) return;
-
-  const ref = new URL(document.referrer);
-
-  if (ref.hostname === window.location.hostname) return;
-
-  params.set("utm_source", ref.hostname);
-  const newUrl =
-    window.location.pathname + "?" + params.toString();
-
-  window.history.replaceState({}, "", newUrl);
-})();
-             </script>
   
 </body>
 </html>
